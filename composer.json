@@ -1,0 +1,22 @@
+{
+  "name": "social-up/api-php",
+  "description": "SocialUP API",
+  "type": "library",
+  "require": {
+    "guzzlehttp/guzzle": "^7.5"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "SocialUp\\API\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "SocialUp"
+    }
+  ]
+}
