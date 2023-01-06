@@ -30,24 +30,14 @@ abstract class BaseService
     public function handleClientExceptions(ClientException $e)
     : void
     {
-        switch ($e->getResponse()->getStatusCode()) {
-            case 401:
-                // Handle 401 Unauthorized error
-                throw new \RuntimeException($e->getResponse()->getHeader('WWW-Authenticate')[0]);
-                break;
-            case 404:
-                // Handle 404 Not Found error
-                break;
-            case 405:
-                // Handle 405 Now Allowed error
-                throw new \RuntimeException($e->getResponse()->getReasonPhrase());
-                break;
-            case 500:
-                // Handle 500 Internal Server Error
-                break;
-            default:
-                // Handle other 4xx errors
-                break;
+        $statusCode = $e->getResponse()->getStatusCode();
+
+        if ($statusCode === 401) {
+            // Handle 401 Unauthorized error
+            throw new \RuntimeException($e->getResponse()->getHeader('WWW-Authenticate')[0]);
         }
+
+        // Handle other 4xx errors
+        throw new \RuntimeException($e->getResponse()->getReasonPhrase());
     }
 }

@@ -20,7 +20,7 @@ Then
 ```php
 $client  = new \SocialUp\API\Client('YOUR_KEY');
 
-$ping = $client->ping()();
+$ping = $client->ping();
 
 $balance = $client->balance()->get();
 ```

@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace SocialUp\API;
 
 use GuzzleHttp\Client as HttpClient;
+use SocialUp\API\Balance\Services\BalanceService;
+use SocialUp\API\Order\Services\OrderService;
 use SocialUp\API\Ping\Services\PingService;
 
 class Client
@@ -13,7 +15,8 @@ class Client
     public function __construct(string $token)
     {
         $client = new HttpClient([
-            'base_uri' => 'https://www.agenciasocialup.com/',
+            'base_uri' => 'http://nginx/',
+            //            'base_uri' => 'https://www.agenciasocialup.com/',
             'timeout'  => 10.0,
             'headers'  => [
                 'Authorization' => sprintf('Bearer %s', $token),
@@ -35,6 +38,28 @@ class Client
     : string
     {
         return (new PingService($this->getClient()))->ping();
+    }
+
+    /**
+     * Get balance service
+     *
+     * @return \SocialUp\API\Balance\Services\BalanceService
+     */
+    public function balance()
+    : BalanceService
+    {
+        return new BalanceService($this->getClient());
+    }
+
+    /**
+     * Get balance service
+     *
+     * @return \SocialUp\API\Order\Services\OrderService
+     */
+    public function order()
+    : OrderService
+    {
+        return new OrderService($this->getClient());
     }
 
     /**

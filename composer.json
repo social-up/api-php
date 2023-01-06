@@ -3,6 +3,7 @@
   "description": "SocialUP API",
   "type": "library",
   "require": {
+    "ext-json": "*",
     "guzzlehttp/guzzle": "^7.5"
   },
   "require-dev": {
