@@ -38,6 +38,10 @@ abstract class BaseService
             case 404:
                 // Handle 404 Not Found error
                 break;
+            case 405:
+                // Handle 405 Now Allowed error
+                throw new \RuntimeException($e->getResponse()->getReasonPhrase());
+                break;
             case 500:
                 // Handle 500 Internal Server Error
                 break;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace SocialUp\API;
 
 use GuzzleHttp\Client as HttpClient;
-use SocialUp\API\Balance\Services\BalanceService;
+use SocialUp\API\Ping\Services\PingService;
 
 class Client
 {
@@ -24,10 +24,17 @@ class Client
         $this->setClient($client);
     }
 
-    public function balance()
-    : BalanceService
+    /**
+     * Ping API
+     *
+     * @throws \SocialUp\API\Ping\Exceptions\PingFailException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \JsonException
+     */
+    public function ping()
+    : string
     {
-        return new BalanceService($this->getClient());
+        return (new PingService($this->getClient()))->ping();
     }
 
     /**
