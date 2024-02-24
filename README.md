@@ -15,7 +15,7 @@ Qualquer dúvida ou problema, basta abrir uma issue aqui no repositório que nó
 
 Aproveite ao máximo a API da SocialUP e leve a sua aplicação para outro nível! 😎
 
-Para mais informações, consulte nosso site: [aqui](https://www.agenciasocialup.com/admin/painel/api)
+Para mais informações, consulte nosso site: [aqui](https://painel.socialuplabs.com/admin/painel/api)
 
 ---------------
 
