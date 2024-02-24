@@ -15,7 +15,7 @@ class Client
     public function __construct(string $token)
     {
         $client = new HttpClient([
-            'base_uri' => 'https://www.vocemaispopular.com/',
+            'base_uri' => 'https://painel.socialuplabs.com.br/',
             'timeout'  => 10.0,
             'headers'  => [
                 'Authorization' => sprintf('Bearer %s', $token),
